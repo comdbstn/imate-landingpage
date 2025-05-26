@@ -1,28 +1,57 @@
+:root {
+    --primary-color: #6e45ff; /* 메인 보라색 계열 */
+    --primary-hover-color: #5838cc;
+    --secondary-color: #03dac6; /* 포인트 청록색 */
+    --background-color: #0f0f14; /* 더 어두운 배경 */
+    --surface-color: #1a1a23; /* 카드 등 표면 색상 */
+    --on-surface-color: #e0e0e0; /* 표면 위 텍스트 */
+    --on-background-color: #f0f0f0; /* 배경 위 텍스트 */
+    --muted-text-color: #a0a0a0; /* 보조 텍스트 */
+    --border-color: #33333f;
+
+    --font-family-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.7;
+
+    --border-radius-small: 4px;
+    --border-radius-medium: 8px;
+    --border-radius-large: 12px;
+    --shadow-small: 0 2px 4px rgba(0,0,0,0.3);
+    --shadow-medium: 0 5px 15px rgba(0,0,0,0.4);
+}
+
 /* 기본 스타일 */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    line-height: 1.8;
+    font-family: var(--font-family-main);
+    line-height: var(--line-height-base);
+    font-size: var(--font-size-base);
     margin: 0;
     padding: 0;
-    background-color: #121212; /* 어두운 배경색 */
-    color: #e0e0e0; /* 밝은 텍스트 색상 */
+    background-color: var(--background-color);
+    color: var(--on-background-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 header {
-    background: #1e1e1e; /* 헤더 배경색 */
-    color: #fff;
+    background: var(--surface-color);
+    color: var(--on-surface-color);
     padding: 1rem 2rem;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-small);
 }
 
 header .logo {
     font-size: 2rem;
     font-weight: bold;
-    color: #6c63ff; /* 로고 색상 */
+    color: var(--primary-color);
 }
 
 nav ul {
@@ -37,14 +66,17 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #e0e0e0;
+    color: var(--on-surface-color);
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
+    padding: 0.5rem 0;
 }
 
-nav ul li a:hover {
-    color: #6c63ff; /* 호버 시 색상 변경 */
+nav ul li a:hover,
+nav ul li a.active { /* 활성 메뉴 스타일 추가 */
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 main {
@@ -52,92 +84,118 @@ main {
 }
 
 section {
-    padding: 60px 20px;
-    margin-bottom: 40px;
-    background: #1e1e1e; /* 섹션 배경색 */
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: 80px 20px; /* 섹션 상하 패딩 증가 */
+    margin-bottom: 60px; /* 섹션 간 마진 증가 */
+    background: transparent; /* 기본 섹션 배경은 투명하게 */
+    border-radius: var(--border-radius-large);
+    /* box-shadow: var(--shadow-medium); 섹션 자체 그림자 제거, 내부 요소에 적용 */
+}
+
+section:nth-child(odd) { /* 홀수번째 섹션 배경 강조 */
+    background-color: var(--surface-color);
 }
 
 section h2 {
     text-align: center;
-    font-size: 2.5rem;
-    color: #6c63ff; /* 섹션 제목 색상 */
-    margin-bottom: 40px;
+    font-size: 2.8rem; /* 제목 크기 증가 */
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 60px; /* 제목과 내용 사이 간격 증가 */
 }
 
 section h3 {
     font-size: 1.8rem;
-    color: #bb86fc; /* 부제목 색상 */
-    margin-bottom: 15px;
+    color: var(--secondary-color); /* 부제목 색상 변경 */
+    margin-bottom: 20px; /* 간격 조정 */
 }
 
 section h4 {
     font-size: 1.4rem;
-    color: #03dac6; /* 작은 제목 색상 */
-    margin-bottom: 10px;
+    color: var(--primary-color); /* 작은 제목 색상 변경 */
+    margin-bottom: 15px;
 }
 
 section h5 {
     font-size: 1.2rem;
-    color: #cf6679; /* 더 작은 제목 색상 */
-    margin-bottom: 8px;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
 }
 
 .cta-button {
     display: inline-block;
-    background: #6c63ff; /* 주요 액션 버튼 색상 */
-    color: #fff;
-    padding: 12px 25px;
+    background: var(--primary-color);
+    color: #fff; /* 흰색 텍스트 고정 */
+    padding: 15px 35px; /* 패딩 증가 */
     text-decoration: none;
-    border-radius: 25px;
-    font-size: 1.1rem;
+    border-radius: 30px; /* 더 둥글게 */
+    font-size: 1.15rem; /* 폰트 크기 증가 */
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(var(--primary-color), 0.3); /* 버튼 그림자에 primary color 틴트 */
+    border: none; /* 테두리 제거 */
 }
 
 .cta-button:hover {
-    background: #574ebf; /* 호버 시 버튼 색상 변경 */
-    transform: translateY(-2px);
+    background: var(--primary-hover-color);
+    transform: translateY(-3px) scale(1.03); /* 호버 효과 강화 */
+    box-shadow: 0 6px 12px rgba(var(--primary-color), 0.4);
 }
 
 /* Hero Section */
 .hero-section {
     text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #6c63ff 0%, #4a40b0 100%);
+    padding: 100px 20px; /* 패딩 증가 */
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover-color) 100%);
     color: #fff;
+    border-radius: 0; /* Hero는 전체 너비로 */
+    margin-bottom: 60px;
 }
 
 .hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 3.5rem; /* 제목 크기 대폭 증가 */
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero-section p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
+    font-size: 1.4rem; /* 설명 텍스트 크기 증가 */
+    margin-bottom: 40px; /* 버튼과의 간격 증가 */
+    max-width: 700px; /* 문장 길이 제어 */
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255,255,255,0.9);
 }
 
 /* Features Section */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 카드 최소 너비 증가 */
+    gap: 35px; /* 간격 증가 */
 }
 
 .feature-item {
-    background: #2c2c2c; /* 기능 아이템 배경색 */
-    padding: 25px;
-    border-radius: 10px;
+    background: var(--surface-color);
+    padding: 30px; /* 패딩 증가 */
+    border-radius: var(--border-radius-medium);
     text-align: left;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
 .feature-item img {
-    width: 50px; /* 아이콘 크기 임시 지정 */
-    margin-bottom: 15px;
-    filter: invert(70%) sepia(80%) saturate(500%) hue-rotate(200deg); /* 아이콘 색상 예시 */
+    width: 45px; /* 아이콘 크기 조정 */
+    height: 45px;
+    margin-bottom: 20px;
+    /* 아이콘 색상 변경 - 실제 SVG를 사용하면 fill 속성으로 제어하는 것이 가장 좋습니다. */
+    /* 임시 필터는 유지하되, 추후 SVG 색상 직접 제어 권장 */
+    filter: invert(80%) sepia(60%) saturate(5000%) hue-rotate(180deg) brightness(1.2) contrast(0.9); /* 더 밝고 primary에 가까운 색으로 */
 }
 
 .feature-item ul {
@@ -153,60 +211,101 @@ section h5 {
 /* Characters Section */
 .characters-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 카드 너비 조정 */
+    gap: 35px;
 }
 
 .character-item {
-    background: #2c2c2c;
-    padding: 25px;
-    border-radius: 10px;
+    background: var(--surface-color);
+    padding: 30px;
+    border-radius: var(--border-radius-medium);
     text-align: center;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.character-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
 .character-item img {
-    width: 100px; /* 캐릭터 이미지 크기 임시 지정 */
-    height: 100px;
+    width: 120px; /* 캐릭터 이미지 크기 증가 */
+    height: 120px;
     border-radius: 50%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     object-fit: cover;
-    background-color: #444; /* 이미지 없을 경우 배경 */
+    background-color: var(--primary-color); /* 이미지 없을 경우 배경 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem; /* 이니셜용 폰트 크기 */
+    color: var(--on-surface-color);
+    font-weight: bold;
+}
+
+/* 캐릭터 이미지 임시 플레이스홀더 스타일 */
+.character-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--on-surface-color);
+    font-weight: bold;
+    border: 2px solid var(--primary-hover-color);
 }
 
 /* Integrations Section */
 .integrations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 카드 너비 조정 */
+    gap: 25px;
 }
 
 .integration-item {
-    background: #2c2c2c;
-    padding: 20px;
-    border-radius: 8px;
+    background: var(--surface-color);
+    padding: 25px; /* 패딩 조정 */
+    border-radius: var(--border-radius-medium);
     text-align: center;
+    box-shadow: var(--shadow-small);
+    border: 1px solid var(--border-color);
 }
 
 /* Pricing Section */
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 카드 너비 조정 */
+    gap: 35px;
+    margin-bottom: 30px;
 }
 
 .pricing-item {
-    background: #2c2c2c;
-    padding: 30px;
-    border-radius: 10px;
+    background: var(--surface-color);
+    padding: 35px; /* 패딩 증가 */
+    border-radius: var(--border-radius-medium);
     text-align: center;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    display: flex; /* 내부 요소 정렬 위해 추가 */
+    flex-direction: column; /* 세로 정렬 */
+    justify-content: space-between; /* 공간 분배 */
+}
+
+.pricing-item h3 {
+    color: var(--primary-color);
 }
 
 .pricing-item .price {
-    font-size: 1.5rem;
+    font-size: 2rem; /* 가격 폰트 크기 증가 */
     font-weight: bold;
-    color: #03dac6;
-    margin: 10px 0;
+    color: var(--secondary-color);
+    margin: 15px 0;
 }
 
 .pricing-item ul {
@@ -236,37 +335,69 @@ section h5 {
 }
 
 .process-steps li {
-    background: #2c2c2c;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border-left: 5px solid #6c63ff;
+    background: var(--surface-color);
+    padding: 25px; /* 패딩 증가 */
+    margin-bottom: 25px; /* 간격 증가 */
+    border-radius: var(--border-radius-medium);
+    border-left: 5px solid var(--primary-color);
+    box-shadow: var(--shadow-small);
+    border-top: 1px solid var(--border-color); /* 미세한 테두리 추가 */
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.process-steps li h4 {
+    color: var(--on-surface-color); /* 프로세스 단계 제목 색상 변경 */
 }
 
 /* Use Cases Section */
 .use-cases-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 카드 너비 조정 */
+    gap: 30px;
 }
 
 .use-case-item {
-    background: #2c2c2c;
-    padding: 20px;
-    border-radius: 8px;
+    background: var(--surface-color);
+    padding: 25px; /* 패딩 증가 */
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-small);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.use-case-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.use-case-item h5 {
+    color: var(--primary-color); /* 사용 예시 제목 색상 변경 */
 }
 
 /* Contact Section */
 .contact-section {
     text-align: center;
+    background-color: var(--surface-color); /* 문의 섹션 배경 강조 */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.contact-section p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    color: var(--muted-text-color);
 }
 
 .contact-form {
-    max-width: 600px;
+    max-width: 650px; /* 폼 너비 증가 */
     margin: 30px auto 0;
-    background: #2c2c2c;
-    padding: 30px;
-    border-radius: 10px;
+    background: var(--background-color); /* 폼 배경을 더 어둡게 */
+    padding: 40px; /* 패딩 증가 */
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-medium);
 }
 
 .contact-form label {
@@ -278,18 +409,25 @@ section h5 {
 
 .contact-form input,
 .contact-form textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background-color: #333;
-    color: #e0e0e0;
+    width: calc(100% - 22px); /* 패딩 고려한 너비 조정 */
+    padding: 12px; /* 패딩 증가 */
+    margin-bottom: 25px; /* 간격 증가 */
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-color); /* 입력 필드 배경 */
+    color: var(--on-surface-color);
     font-size: 1rem;
 }
 
 .contact-form textarea {
     resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.3);
 }
 
 .contact-form button.cta-button {
@@ -298,11 +436,12 @@ section h5 {
 
 footer {
     text-align: center;
-    padding: 30px 20px;
-    background: #1e1e1e;
-    color: #aaa;
-    margin-top: 40px;
+    padding: 40px 20px; /* 푸터 패딩 증가 */
+    background: var(--background-color); /* 푸터 배경 변경 */
+    color: var(--muted-text-color); /* 푸터 텍스트 색상 변경 */
+    margin-top: 0; /* 이전 섹션이 surface-color일 수 있으므로 margin-top 제거 또는 조정 */
     font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
 }
 
 .footer-content {
@@ -311,24 +450,24 @@ footer {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto 20px;
-    flex-wrap: wrap; /* 모바일 화면에서 줄바꿈 */
+    flex-wrap: wrap;
 }
 
 .footer-logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* 푸터 로고 크기 증가 */
     font-weight: bold;
-    color: #6c63ff;
+    color: var(--primary-color);
 }
 
 .footer-links a {
-    color: #aaa;
+    color: var(--muted-text-color);
     text-decoration: none;
     margin: 0 10px;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #fff;
+    color: var(--primary-color); /* 푸터 링크 호버 색상 변경 */
 }
 
 /* 반응형 디자인 */
@@ -343,14 +482,21 @@ footer {
     nav ul li {
         margin: 10px 0;
     }
+    section {
+        padding: 60px 15px; /* 모바일 섹션 패딩 조정 */
+    }
     section h2 {
-        font-size: 2rem;
+        font-size: 2.2rem; /* 모바일 제목 크기 조정 */
+        margin-bottom: 40px;
+    }
+    .hero-section {
+        padding: 80px 15px;
     }
     .hero-section h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem; /* 모바일 히어로 제목 크기 */
     }
     .hero-section p {
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* 모바일 히어로 설명 텍스트 */
     }
     .features-grid,
     .characters-grid,
@@ -366,4 +512,28 @@ footer {
     .footer-links {
         margin-bottom: 15px;
     }
-} 
+    nav ul li a {
+        padding: 0.8rem 0; /* 모바일 네비 링크 패딩 조정 */
+    }
+    .contact-form {
+        padding: 30px;
+    }
+}
+
+/* Scroll Animation Utilities */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay variations for staggered animation */
+.reveal-on-scroll.delay-1.is-visible { transition-delay: 0.1s; }
+.reveal-on-scroll.delay-2.is-visible { transition-delay: 0.2s; }
+.reveal-on-scroll.delay-3.is-visible { transition-delay: 0.3s; }
+.reveal-on-scroll.delay-4.is-visible { transition-delay: 0.4s; } 
