@@ -1,0 +1,369 @@
+/* 기본 스타일 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* 어두운 배경색 */
+    color: #e0e0e0; /* 밝은 텍스트 색상 */
+}
+
+header {
+    background: #1e1e1e; /* 헤더 배경색 */
+    color: #fff;
+    padding: 1rem 2rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6c63ff; /* 로고 색상 */
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    display: flex; /* 가로 정렬 */
+    justify-content: center; /* 가운데 정렬 */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #6c63ff; /* 호버 시 색상 변경 */
+}
+
+main {
+    padding: 40px 20px;
+}
+
+section {
+    padding: 60px 20px;
+    margin-bottom: 40px;
+    background: #1e1e1e; /* 섹션 배경색 */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #6c63ff; /* 섹션 제목 색상 */
+    margin-bottom: 40px;
+}
+
+section h3 {
+    font-size: 1.8rem;
+    color: #bb86fc; /* 부제목 색상 */
+    margin-bottom: 15px;
+}
+
+section h4 {
+    font-size: 1.4rem;
+    color: #03dac6; /* 작은 제목 색상 */
+    margin-bottom: 10px;
+}
+
+section h5 {
+    font-size: 1.2rem;
+    color: #cf6679; /* 더 작은 제목 색상 */
+    margin-bottom: 8px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #6c63ff; /* 주요 액션 버튼 색상 */
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    background: #574ebf; /* 호버 시 버튼 색상 변경 */
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #6c63ff 0%, #4a40b0 100%);
+    color: #fff;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+/* Features Section */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    background: #2c2c2c; /* 기능 아이템 배경색 */
+    padding: 25px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.feature-item img {
+    width: 50px; /* 아이콘 크기 임시 지정 */
+    margin-bottom: 15px;
+    filter: invert(70%) sepia(80%) saturate(500%) hue-rotate(200deg); /* 아이콘 색상 예시 */
+}
+
+.feature-item ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.feature-item li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* Characters Section */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.character-item {
+    background: #2c2c2c;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.character-item img {
+    width: 100px; /* 캐릭터 이미지 크기 임시 지정 */
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    background-color: #444; /* 이미지 없을 경우 배경 */
+}
+
+/* Integrations Section */
+.integrations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.integration-item {
+    background: #2c2c2c;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Pricing Section */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.pricing-item {
+    background: #2c2c2c;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.pricing-item .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #03dac6;
+    margin: 10px 0;
+}
+
+.pricing-item ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.pricing-item li {
+    margin-bottom: 8px;
+}
+
+.pricing-note {
+    text-align: center;
+    font-style: italic;
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+/* Process Section */
+.process-steps {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.process-steps li {
+    background: #2c2c2c;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #6c63ff;
+}
+
+/* Use Cases Section */
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.use-case-item {
+    background: #2c2c2c;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 30px auto 0;
+    background: #2c2c2c;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button.cta-button {
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #1e1e1e;
+    color: #aaa;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    flex-wrap: wrap; /* 모바일 화면에서 줄바꿈 */
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6c63ff;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    header .logo {
+        font-size: 1.5rem;
+    }
+    nav ul {
+        flex-direction: column; /* 세로 정렬 */
+        align-items: center; /* 가운데 정렬 */
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+    section h2 {
+        font-size: 2rem;
+    }
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+    .features-grid,
+    .characters-grid,
+    .integrations-grid,
+    .pricing-grid,
+    .use-cases-grid {
+        grid-template-columns: 1fr; /* 모바일에서는 1열로 표시 */
+    }
+    .footer-content {
+        flex-direction: column;
+    }
+    .footer-logo,
+    .footer-links {
+        margin-bottom: 15px;
+    }
+} 
