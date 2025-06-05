@@ -75,6 +75,7 @@ const InteractiveAgentSection = () => {
               <div key={msg.id} className={`flex ${msg.sender === 'ai' ? 'justify-start' : 'justify-end'}`}>
                 <div
                   className={`max-w-[80%] sm:max-w-[70%] px-4 py-3 rounded-2xl shadow-sm ${msg.sender === 'ai' ? 'bg-orange-500 text-white rounded-bl-none' : 'bg-slate-200 text-slate-800 rounded-br-none'}`}
+                  style={{ whiteSpace: 'pre-wrap' }}
                 >
                   {msg.text}
                 </div>
