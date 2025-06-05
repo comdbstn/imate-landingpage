@@ -16,24 +16,39 @@ const InteractiveAgentSection = () => {
     setMessages([initialMessage]);
   }, []);
 
-  const handleSendMessage = (text) => {
-    const userMessage = text.trim();
-    if (!userMessage) return;
+  const handleSendMessage = async (text) => {
+    const userMessageText = text.trim();
+    if (!userMessageText) return;
 
-    setMessages(prev => [...prev, { id: Date.now(), text: userMessage, sender: 'user' }]);
+    const newUserMessage = { id: Date.now(), text: userMessageText, sender: 'user' };
+    setMessages(prev => [...prev, newUserMessage]);
     setInputValue('');
     setIsLoading(true);
 
-    setTimeout(() => {
-      let aiResponseText = '죄송합니다. 지금은 OpenAI API와 연결되어 있지 않아 실제 답변을 드릴 수 없습니다. 데모 버전입니다.';
-      if (userMessage.includes('이메일 자동응답')) {
-        aiResponseText = '이메일 자동응답 기능은 고객 문의 시 AI가 즉시 분석하여, 최적의 답변을 자동으로 발송하는 시스템입니다. 예를 들어, "제품 가격 문의" 시 관련 정보와 링크를 포함한 답변을 60초 내에 보낼 수 있습니다. 더 자세한 상담을 원하시면 [이 기능 도입 상담하기] 버튼을 눌러주세요!';
-      } else if (userMessage.includes('온보딩 메시지')) {
-        aiResponseText = '고객 온보딩 자동화는 신규 고객에게 맞춤형 환영 메시지, 사용 가이드, 중요 일정 등을 단계별로 자동 발송합니다. 예시: 1일차 - 환영 및 기본 가이드, 3일차 - 핵심 기능 안내, 7일차 - 고급 활용팁 및 Q&A 세션 초대. 도입 상담을 통해 귀사 맞춤 시나리오를 설계해 보세요.';
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: userMessageText }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error?.message || `API 요청 실패: ${response.status}`);
       }
+
+      const data = await response.json();
+      const aiResponseText = data.result;
+
       setMessages(prev => [...prev, { id: Date.now() + 1, text: aiResponseText, sender: 'ai' }]);
+    } catch (error) {
+      console.error("Error fetching AI response:", error);
+      setMessages(prev => [...prev, { id: Date.now() + 1, text: `오류가 발생했습니다: ${error.message}`, sender: 'ai' }]);
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   const exampleQuestions = [
@@ -50,7 +65,7 @@ const InteractiveAgentSection = () => {
           iMate <span className="text-orange-500">GPT 체험 및 도입 상담</span>
         </h2>
         <p className="text-lg text-slate-600 text-center mb-12 md:mb-16 max-w-2xl mx-auto">
-          아래 버튼을 클릭하거나, 궁금한 점을 직접 물어보세요.<br />GPT 기반 AI Agent가 당신의 질문에 응답합니다. (현재 데모 버전)<br />이 기능 도입을 원하시면 하단의 '이 기능 상담 도입하기' 버튼을 눌러 카카오 채널로 문의해주세요.
+          아래 버튼을 클릭하거나, 궁금한 점을 직접 물어보세요.<br />GPT 기반 AI Agent가 당신의 질문에 응답합니다.<br />이 기능 도입을 원하시면 하단의 '이 기능 상담 도입하기' 버튼을 눌러 카카오 채널로 문의해주세요.
         </p>
 
         <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden" style={{ height: '600px', display: 'flex', flexDirection: 'column' }}>
