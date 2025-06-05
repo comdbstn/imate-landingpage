@@ -8,7 +8,7 @@ const InteractiveAgentSection = () => {
 
   const initialMessage = {
     id: Date.now(),
-    text: '안녕하세요! iMate AI Agent입니다. 무엇을 도와드릴까요? 아래 예시 질문을 클릭하시거나 직접 질문을 입력해주세요.',
+    text: '꺄아! 안녕하세요! 👋\niMate의 AI 상담 에이전트, 지유예요! ✨\n무엇이든 궁금한 점이 있다면 망설이지 말고 저에게 물어봐 주세요! 콕콕! 👇\n아래 예시 질문을 눌러보거나, 직접 질문을 입력해도 좋아요! 😊',
     sender: 'ai'
   };
 
