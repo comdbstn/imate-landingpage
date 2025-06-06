@@ -50,7 +50,7 @@ function App() {
           <ul className="hidden md:flex space-x-6 items-center">
             {navItems.map(item => (
               <li key={item.id}>
-                <a href={`#${item.id}`} onClick={(e) => { e.preventDefault(); scrollToSection(item.id); }} className="hover:text-orange-500 transition-colors">
+                <a href={`#${item.id}`} onClick={(e) => { e.preventDefault(); scrollToSection(item.id); }} className="hover:text-orange-500 transition-colors duration-200">
                   {item.name}
                 </a>
               </li>
@@ -60,7 +60,7 @@ function App() {
                 href="http://pf.kakao.com/_DcvJn/chat" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-md transition-colors"
+                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200"
               >
                 무료 상담
               </a>
@@ -87,7 +87,7 @@ function App() {
                   <a 
                     href={`#${item.id}`} 
                     onClick={(e) => { e.preventDefault(); scrollToSection(item.id); }} 
-                    className="block py-3 px-4 hover:bg-orange-500 hover:text-white transition-colors w-full"
+                    className="block py-3 px-4 hover:bg-orange-500 hover:text-white transition-colors duration-200 w-full"
                   >
                     {item.name}
                   </a>
@@ -98,7 +98,7 @@ function App() {
                   href="http://pf.kakao.com/_DcvJn/chat" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-md transition-colors"
+                  className="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200"
                 >
                   무료 상담
                 </a>

@@ -59,8 +59,8 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index} 
-              className={`bg-slate-50 p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-300 flex flex-col transform ease-out duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${isVisible ? 300 + index * 150 : 0}ms` }}
+              className={`bg-slate-50 p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.03] transition-all duration-200 flex flex-col transform ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${isVisible ? 150 + index * 100 : 0}ms` }}
             >
               <svg className="w-10 h-10 text-orange-400 mb-4" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M6 5C6 3.34315 4.65685 2 3 2C1.34315 2 0 3.34315 0 5C0 6.65685 1.34315 8 3 8C4.65685 8 6 6.65685 6 5ZM16 5C16 3.34315 14.6568 2 13 2C11.3431 2 10 3.34315 10 5C10 6.65685 11.3431 8 13 8C14.6568 8 16 6.65685 16 5ZM3 10C1.34315 10 0 11.3431 0 13C0 14.6569 1.34315 16 3 16C4.65685 16 6 14.6569 6 13C6 11.3431 4.65685 10 3 10ZM13 10C11.3431 10 10 11.3431 10 13C10 14.6569 11.3431 16 13 16C14.6568 16 16 14.6569 16 13C16 11.3431 14.6568 10 13 10Z"></path>

@@ -9,7 +9,7 @@ const InteractiveAgentSection = () => {
 
   const initialMessage = {
     id: Date.now(),
-    text: '꺄아! 안녕하세요! 👋\niMate의 AI 상담 에이전트, 지유예요! ✨\n무엇이든 궁금한 점이 있다면 망설이지 말고 저에게 물어봐 주세요! 콕콕! 👇\n아래 예시 질문을 눌러보거나, 직접 질문을 입력해도 좋아요! 😊',
+    text: '안녕하세요! iMate의 AI 상담 에이전트 지유입니다. 🤖\niMate 서비스에 대해 궁금한 점이 있으신가요? 무엇이든 물어보세요! 아래 예시 질문을 클릭하거나 직접 질문을 입력해 iMate의 기능을 체험해보세요. \n\n도입 문의나 요금제 등 상세한 상담은 하단의 "이 기능 도입 상담하기" 버튼을 통해 전문가에게 문의하시면 가장 빠르고 정확합니다! ✨',
     sender: 'ai'
   };
 
@@ -25,6 +25,20 @@ const InteractiveAgentSection = () => {
     const newUserMessage = { id: Date.now(), text: userMessageText, sender: 'user' };
     setMessages(prev => [...prev, newUserMessage]);
     setInputValue('');
+    
+    const purchaseKeywords = ['구매', '결제', '도입', '가격', '요금', '플랜', '견적'];
+    const isPurchaseInquiry = purchaseKeywords.some(keyword => userMessageText.includes(keyword));
+
+    if (isPurchaseInquiry) {
+      const purchaseResponseMessage = {
+        id: Date.now() + 1,
+        text: 'iMate 도입 및 요금제에 관심을 가져주셔서 감사합니다! 😊\n정확한 견적 및 상세 도입 절차는 전문가 상담을 통해 맞춤으로 안내해드리고 있어요.\n\n아래 ✨이 기능 도입 상담하기✨ 버튼을 눌러 문의를 남겨주시면, 담당 매니저가 신속하게 연락드리겠습니다!',
+        sender: 'ai'
+      };
+      setMessages(prev => [...prev, purchaseResponseMessage]);
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -54,10 +68,10 @@ const InteractiveAgentSection = () => {
   };
 
   const exampleQuestions = [
-    'AI 이메일 자동응답 기능이 궁금해요.',
-    '고객 온보딩 자동화 방법을 알려주세요.',
-    'CRM 연동은 어떻게 진행되나요?',
-    '콜드메일 발송 기능에 대해 더 알고 싶어요.',
+    'iMate는 어떤 서비스야?',
+    '이메일 자동 분류 기능 보여줘',
+    'CRM 연동은 어떻게 해?',
+    '고객 온보딩 자동화 시나리오 예시',
   ];
 
   return (
@@ -67,7 +81,7 @@ const InteractiveAgentSection = () => {
           iMate <span className="text-orange-500">GPT 체험 및 도입 상담</span>
         </h2>
         <p className="text-lg text-slate-600 text-center mb-12 md:mb-16 max-w-2xl mx-auto">
-          아래 버튼을 클릭하거나, 궁금한 점을 직접 물어보세요.<br />GPT 기반 AI Agent가 당신의 질문에 응답합니다.<br />이 기능 도입을 원하시면 하단의 '이 기능 상담 도입하기' 버튼을 눌러 카카오 채널로 문의해주세요.
+          아래 버튼을 클릭하거나, 궁금한 점을 직접 물어보세요.<br />GPT 기반 AI Agent가 당신의 질문에 응답합니다.<br />이 기능 도입을 원하시면 하단의 '이 기능 도입 상담하기' 버튼을 눌러 카카오 채널로 문의해주세요.
         </p>
 
         <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden" style={{ height: 'auto', minHeight: '600px', maxHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
@@ -103,7 +117,7 @@ const InteractiveAgentSection = () => {
                     <button
                       key={index}
                       onClick={() => handleSendMessage(q)}
-                      className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm py-2 px-3 rounded-lg transition-colors shadow-sm"
+                      className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm py-2 px-3 rounded-lg transition-colors duration-200 shadow-sm"
                     >
                       {q}
                     </button>
@@ -123,7 +137,7 @@ const InteractiveAgentSection = () => {
               <button
                 type="submit"
                 disabled={isLoading || !inputValue.trim()}
-                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-5 rounded-lg transition-colors disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
+                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-5 rounded-lg transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
               >
                 전송
               </button>
@@ -136,7 +150,7 @@ const InteractiveAgentSection = () => {
             href="http://pf.kakao.com/_DcvJn/chat"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
+            className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out text-lg"
           >
             이 기능 도입 상담하기
           </a>
