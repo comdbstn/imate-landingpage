@@ -4,8 +4,8 @@ const PricingSection = () => {
   const plans = [
     {
       name: 'Standard',
-      price: '월 30만원부터',
-      priceDescription: '이후 월 30만원 유지보수',
+      price: '월 30만원',
+      priceDescription: '최초 1회 개발비 50만원 별도',
       features: ['AI 자동화 기능 2개 선택', '월 1,000건 처리', '기본 연동 지원', '이메일 및 채팅 지원'],
       cta: '상담 문의하기',
       bgColor: 'bg-white',
@@ -15,10 +15,10 @@ const PricingSection = () => {
       kakaoLink: 'http://pf.kakao.com/_DcvJn/chat'
     },
     {
-      name: 'Premium',
-      price: '월 50만원부터',
-      priceDescription: '모든 가능성을 열어두세요',
-      features: ['AI 자동화 기능 4개 선택', '월 3,000건 처리', '우선 연동 지원', '전담 매니저 및 기술 지원'],
+      name: '엔터프라이즈',
+      price: '견적 문의',
+      priceDescription: '비즈니스에 최적화된 솔루션',
+      features: ['맞춤형 AI 제작', '처리 건수 무제한 협의', '전용 인프라 구축', '전담 매니저 및 최우선 기술 지원'],
       cta: '도입 문의하기',
       bgColor: 'bg-orange-50', // Emphasize with a light orange background
       textColor: 'text-slate-900',
