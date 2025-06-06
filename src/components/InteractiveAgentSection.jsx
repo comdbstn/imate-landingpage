@@ -4,6 +4,7 @@ const InteractiveAgentSection = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [chatStarted, setChatStarted] = useState(false);
   const chatEndRef = useRef(null);
 
   const initialMessage = {
@@ -17,6 +18,7 @@ const InteractiveAgentSection = () => {
   }, []);
 
   const handleSendMessage = async (text) => {
+    if (!chatStarted) setChatStarted(true);
     const userMessageText = text.trim();
     if (!userMessageText) return;
 
@@ -68,7 +70,7 @@ const InteractiveAgentSection = () => {
           아래 버튼을 클릭하거나, 궁금한 점을 직접 물어보세요.<br />GPT 기반 AI Agent가 당신의 질문에 응답합니다.<br />이 기능 도입을 원하시면 하단의 '이 기능 상담 도입하기' 버튼을 눌러 카카오 채널로 문의해주세요.
         </p>
 
-        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden" style={{ height: 'auto', minHeight: '500px', maxHeight: '70vh', display: 'flex', flexDirection: 'column' }}>
+        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden" style={{ height: 'auto', minHeight: '600px', maxHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
           {/* Chat Messages */}
           <div className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-grow">
             {messages.map((msg) => (
@@ -93,18 +95,22 @@ const InteractiveAgentSection = () => {
 
           {/* Example Questions Buttons & Input Area */}
           <div className="p-4 border-t border-slate-200 bg-white">
-            <p className="text-sm text-slate-500 mb-3 text-center">예시 질문:</p>
-            <div className="flex flex-wrap justify-center gap-2 mb-4">
-              {exampleQuestions.map((q, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleSendMessage(q)}
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm py-2 px-3 rounded-lg transition-colors shadow-sm"
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
+            {!chatStarted && (
+              <>
+                <p className="text-sm text-slate-500 mb-3 text-center">예시 질문:</p>
+                <div className="flex flex-wrap justify-center gap-2 mb-4">
+                  {exampleQuestions.map((q, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleSendMessage(q)}
+                      className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm py-2 px-3 rounded-lg transition-colors shadow-sm"
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
           
             <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(inputValue); }} className="flex items-center space-x-2">
               <input

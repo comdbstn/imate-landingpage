@@ -23,10 +23,12 @@ const servicesData = [
     Icon: EmailIcon,
     description: '반복적인 이메일 분류, 응대, 전달을 자동화하여 시간을 절약합니다.',
     details: {
-      image: '/images/agent-email.png',
+      image: '/images/services/email-autoresponder.png',
       title: 'AI 이메일 비서',
       text: '수신 이메일을 내용에 따라 분석하여 담당자에게 자동 전달하거나, 자주 묻는 질문에 대한 답변을 생성합니다. 스팸 필터링, 중요 메일 알림 등 맞춤 설정이 가능합니다.',
-      link: 'http://pf.kakao.com/_DcvJn/chat' // All modal CTAs will point to Kakao chat for detailed inquiry
+      link: 'http://pf.kakao.com/_DcvJn/chat',
+      recommendedIndustries: '온라인 쇼핑몰, SaaS 기업, 고객 지원센터, 교육 기관',
+      extendedDescription: `**[ 문제 상황 ]**\n느리고 반복적인 이메일 응대로 인한 잠재 고객 이탈, 낮은 전환율, 높은 운영 비용, 직원 번아웃\n\n**[ iMate 솔루션 ]**\nGPT 기반 AI가 고객 문의 의도를 정확히 파악하여, 24시간 365일 개인화된 답변을 60초 내 자동 전송합니다.\n\n**[ 주요 기능 및 특징 ]**\n- 지능형 문의 분석 및 분류\n- AI 기반 답변 생성 및 추천\n- 다국어 지원 및 자동 번역\n- CRM 및 외부 시스템 연동\n- 지속적인 학습 및 성능 최적화\n- 상세 리포팅 및 성과 분석 대시보드\n\n**[ 도입 효과 ]**\n- 응답 속도 60초 이내로 혁신\n- 이메일 처리 시간 90% 절감\n- 고객 만족도 25% 향상\n- 운영 비용 50% 절감`
     }
   },
   {
@@ -35,10 +37,12 @@ const servicesData = [
     Icon: OnboardingIcon,
     description: '신규 고객에게 제품 사용법 안내, 환영 메시지 발송 등을 자동화합니다.',
     details: {
-      image: '/images/agent-onboarding.png',
+      image: '/images/services/onboarding-automation.png',
       title: 'AI 온보딩 전문가',
       text: '고객의 서비스 가입 즉시, 단계별 맞춤 안내 메시지를 자동으로 발송하여 고객의 초기 이탈을 방지하고 제품 활성화를 돕습니다. 고객 데이터를 기반으로 개인화된 온보딩 경험을 제공할 수 있습니다.',
-      link: 'http://pf.kakao.com/_DcvJn/chat'
+      link: 'http://pf.kakao.com/_DcvJn/chat',
+      recommendedIndustries: 'SaaS, 온라인 교육, 멤버십 서비스, 금융 상품',
+      extendedDescription: `**[ 문제 상황 ]**\n높은 초기 이탈률, 일관성 없는 온보딩 경험, 반복적인 안내 업무 부담, 낮은 서비스/제품 활성화 비율\n\n**[ iMate 솔루션 ]**\n고객 여정 단계별 맞춤형 환영 메시지, 사용 가이드, 튜토리얼, 주요 기능 안내, 성공 팁 등을 자동으로 제공합니다.\n\n**[ 주요 기능 및 특징 ]**\n- 다채널 온보딩 시나리오 설계\n- 개인화된 콘텐츠 자동 발송\n- 고객 행동 기반 조건부 메시징\n- 핵심 기능 안내 및 사용 유도\n- 진행 상황 추적 및 리포팅\n\n**[ 도입 효과 ]**\n- 온보딩 완료율 40% 증가\n- 초기 이탈률 30% 감소\n- 지원 문의 60% 감소\n- 장기 고객 유지율(Retention) 증가`
     }
   },
   {
@@ -47,10 +51,12 @@ const servicesData = [
     Icon: CrmIcon,
     description: '영업 기회를 자동으로 포착하여 CRM에 기록하고 담당자에게 알립니다.',
     details: {
-      image: '/images/agent-crm.png',
+      image: '/images/services/crm-followup.png',
       title: 'AI 리드 관리 매니저',
       text: '웹사이트, 소셜 미디어 등 다양한 채널에서 발생하는 잠재 고객 정보를 실시간으로 수집하고, 정해진 기준에 따라 분류하여 CRM에 자동으로 저장합니다. 영업팀은 고가치 리드에만 집중할 수 있습니다.',
-      link: 'http://pf.kakao.com/_DcvJn/chat'
+      link: 'http://pf.kakao.com/_DcvJn/chat',
+      recommendedIndustries: 'B2B 영업팀, 부동산 중개, 고가 컨설팅 서비스, 금융 투자 유치',
+      extendedDescription: `**[ 문제 상황 ]**\n영업 담당자의 바쁜 일정으로 인한 리드 관리 소홀, 잠재 고객과의 관계 단절, 낮은 미팅 전환율, 수동 팔로우업의 비효율\n\n**[ iMate 솔루션 ]**\nCRM 데이터와 연동하여 고객의 행동 및 상태 변화에 따라 AI가 개인화된 후속 메시지, 정보, 제안을 적시에 자동 발송합니다.\n\n**[ 주요 기능 및 특징 ]**\n- 실시간 CRM 데이터 연동 및 동기화\n- 고객 행동 기반 트리거 설정\n- 개인화된 메시지 자동 생성 및 발송\n- 영업 단계별 맞춤 시나리오\n- A/B 테스트 및 성과 분석\n\n**[ 도입 효과 ]**\n- 팔로우업 업무 80% 자동화\n- 리드 응답률 2배 증가\n- 미팅 성사율 50% 향상\n- 영업 주기 평균 15% 단축`
     }
   },
   {
@@ -59,10 +65,12 @@ const servicesData = [
     Icon: ColdMailIcon,
     description: '타겟 고객 목록을 기반으로 개인화된 콜드메일을 자동으로 발송합니다.',
     details: {
-      image: '/images/agent-coldmail.png',
+      image: '/images/services/coldmail-automation.png',
       title: 'AI 콜드메일 전문가',
       text: '타겟 고객의 특성과 니즈를 분석하여 맞춤형 콜드메일 콘텐츠를 대량 생성하고, 최적의 시간에 발송하여 오픈율과 응답률을 극대화합니다. A/B 테스트를 통해 가장 효과적인 메시지를 찾아냅니다.',
-      link: 'http://pf.kakao.com/_DcvJn/chat'
+      link: 'http://pf.kakao.com/_DcvJn/chat',
+      recommendedIndustries: '스타트업 (투자 유치, 파트너십), B2B 기업 (신규 시장 개척), 마케팅/PR 대행사, 헤드헌팅',
+      extendedDescription: `**[ 문제 상황 ]**\n낮은 콜드메일 오픈율과 응답률, 스팸으로 간주될 위험, 타겟 고객 분석 및 메시지 작성에 소요되는 많은 시간\n\n**[ iMate 솔루션 ]**\n타겟 고객의 최신 정보(뉴스, SNS, 회사 발표 등)를 AI가 실시간으로 분석하여, 1:1 맞춤형 콜드메일 초안을 자동으로 생성하고 발송 스케줄링까지 지원합니다.\n\n**[ 주요 기능 및 특징 ]**\n- 타겟 고객 자동 프로파일링\n- AI 기반 초개인화 메시지 생성\n- 실시간 정보 반영 및 시의성 확보\n- 발송 스케줄링 및 시퀀스 자동화\n- 오픈율/응답률 추적 및 성과 분석\n\n**[ 도입 효과 ]**\n- 콜드메일 작성 시간 90% 절감\n- 오픈율 평균 40% 이상 달성\n- 응답률 업계 평균 대비 3~5배 증가\n- 미팅 전환율 10% 이상 확보`
     }
   }
 ];
@@ -92,7 +100,7 @@ const ServiceModal = ({ service, onClose }) => {
     if (!description) return null;
     return description.split('\n\n').map((paragraph, index) => {
       if (paragraph.startsWith('**[') && paragraph.endsWith(']**')) {
-        return <h4 key={index} className="text-xl font-semibold text-slate-800 mt-6 mb-3">{paragraph.replace(/\*\*\s*\[\s*|\s*\]\s*\*\*/g, '')}</h4>;
+        return <h4 key={index} className="text-xl font-semibold text-slate-800 mt-6 mb-3">{paragraph.replace(/\*\*\[|\]\*\*/g, '').trim()}</h4>;
       }
       if (paragraph.startsWith('- ')) {
         const items = paragraph.split('\n- ').map(item => item.replace(/^- /, ''));
@@ -102,7 +110,7 @@ const ServiceModal = ({ service, onClose }) => {
           </ul>
         );
       }
-      return <p key={index} className="text-slate-700 mb-3 leading-relaxed whitespace-pre-line">{paragraph}</p>;
+      return <p key={index} className="text-slate-700 mb-3 leading-relaxed whitespace-pre-line">{paragraph.replace(/\*\*/g, '')}</p>;
     });
   };
 
@@ -262,34 +270,6 @@ const ServicesSection = () => {
           </a>
         </div>
 
-        {/* Testimonial Section within Services */}
-        <div className="mt-20">
-          <h3 className="text-3xl font-bold text-center mb-10">이미 많은 팀이 iMate와 함께합니다</h3>
-          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-            {/* Testimonial Card 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-100">
-              <p className="text-slate-600 mb-6">"단순 반복적인 이메일 응대 업무가 확 줄어서 핵심 업무에 더 집중할 수 있게 되었어요. 특히 CS팀의 만족도가 높습니다."</p>
-              <div className="font-semibold text-slate-800">박서준</div>
-              <div className="text-sm text-slate-500">스타트업 '오늘의 집' CS팀장</div>
-            </div>
-            {/* Testimonial Card 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-100">
-              <p className="text-slate-600 mb-6">"영업 파이프라인 관리가 이렇게 편해질 줄 몰랐습니다. 리드 정보가 CRM에 자동으로 정리되니 정말 편리해요."</p>
-              <div className="font-semibold text-slate-800">김민지</div>
-              <div className="text-sm text-slate-500">IT 솔루션 기업 '데이터링크' 영업대표</div>
-            </div>
-          </div>
-          <div className="text-center mt-12">
-            <a 
-              href="http://pf.kakao.com/_DcvJn/chat"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              내부 도입 후기 더보기
-            </a>
-          </div>
-        </div>
       </div>
       {selectedService && <ServiceModal service={selectedService} onClose={closeModal} />}
     </section>
