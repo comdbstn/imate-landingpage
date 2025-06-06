@@ -479,30 +479,32 @@ const ServicesSection = () => {
           {servicesData.map((service, index) => (
             <div
               key={service.id}
-              className={`group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-2 transform transition-all ease-out duration-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-              style={{ transitionDelay: `${isVisible ? 150 + index * 100 : 0}ms` }}
+              className={`bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col hover:-translate-y-2 overflow-hidden transform cursor-pointer ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+              style={{
+                transitionDelay: `${isVisible ? 150 + index * 100 : 0}ms`,
+              }}
               onClick={() => openModal(service)}
             >
-              <div className="flex items-center mb-4">
-                <div className="bg-orange-100 p-3 rounded-lg mr-4">
-                  <service.Icon />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800">
+              <div className="relative h-48 w-full overflow-hidden">
+                <img
+                  src={service.details.image}
+                  alt={`${service.name} 이미지`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">
                   {service.name}
                 </h3>
+                <p className="text-slate-600 mb-3 text-sm leading-relaxed flex-grow min-h-[60px]">
+                  {service.description}
+                </p>
+                <div className="mt-auto pt-4">
+                  <div className="w-full text-center font-semibold py-2 px-4 rounded-md text-orange-600 bg-orange-100 hover:bg-orange-500 hover:text-white transition-all duration-300">
+                    자세히 보기
+                  </div>
+                </div>
               </div>
-              <p className="text-slate-600 mb-6 flex-grow">
-                {service.description}
-              </p>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  openModal(service);
-                }}
-                className="w-full text-center font-semibold py-2 px-4 rounded-md text-orange-600 bg-orange-100 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300"
-              >
-                자세히 보기
-              </button>
             </div>
           ))}
         </div>
