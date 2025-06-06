@@ -117,13 +117,29 @@ const FaqSection = () => {
             iMate가 성공적인 비즈니스 자동화 파트너가 되어드리겠습니다.
           </p>
           <a
-            href="https://pf.kakao.com/_CYGdn/chat"
+            href="http://pf.kakao.com/_DcvJn/chat"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-lg text-lg md:text-xl shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-block"
           >
             1:1 무료 전문가 상담 신청
           </a>
+        </div>
+
+        <div 
+          className="mt-8 text-center"
+        >
+          <p className="text-lg text-slate-600">
+            찾으시는 답변이 없나요?{' '}
+            <a 
+              href="http://pf.kakao.com/_DcvJn/chat" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-orange-500 hover:text-orange-600 font-semibold"
+            >
+              문의하기
+            </a>
+          </p>
         </div>
       </div>
     </section>

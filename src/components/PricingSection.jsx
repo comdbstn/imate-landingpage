@@ -3,41 +3,29 @@ import React from 'react';
 const PricingSection = () => {
   const plans = [
     {
-      name: '베이직',
-      price: '첫 개발 50만원',
+      name: 'Standard',
+      price: '월 30만원부터',
       priceDescription: '이후 월 30만원 유지보수',
-      features: [
-        '필수 기능 중심 AI 에이전트 1종',
-        '초기 맞춤 세팅 및 교육 지원',
-        '정기적인 사용량 리포트',
-        '이메일 및 채팅 기술 지원',
-      ],
+      features: ['AI 자동화 기능 2개 선택', '월 1,000건 처리', '기본 연동 지원', '이메일 및 채팅 지원'],
       cta: '상담 문의하기',
       bgColor: 'bg-white',
       textColor: 'text-slate-800',
       buttonClass: 'bg-slate-200 hover:bg-slate-300 text-slate-800',
       popular: false,
-      kakaoLink: 'http://pf.kakao.com/_CYGdn/chat'
+      kakaoLink: 'http://pf.kakao.com/_DcvJn/chat'
     },
     {
-      name: '엔터프라이즈',
-      price: '별도 문의',
+      name: 'Premium',
+      price: '월 50만원부터',
       priceDescription: '모든 가능성을 열어두세요',
-      features: [
-        '요구사항 기반 완전 맞춤형 AI 에이전트 개발 (무제한)',
-        '기업 시스템 연동 및 API 통합',
-        '전담 PM 배정 및 심층 컨설팅',
-        '최고 수준 보안 및 데이터 관리',
-        '24/7 최우선 기술 지원',
-        '지속적인 성능 최적화 및 기능 업데이트',
-      ],
+      features: ['AI 자동화 기능 4개 선택', '월 3,000건 처리', '우선 연동 지원', '전담 매니저 및 기술 지원'],
       cta: '도입 문의하기',
       bgColor: 'bg-orange-50', // Emphasize with a light orange background
       textColor: 'text-slate-900',
       buttonClass: 'bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white', // Gradient button
       popular: true,
       badgeText: '맞춤형 솔루션',
-      kakaoLink: 'http://pf.kakao.com/_CYGdn/chat'
+      kakaoLink: 'http://pf.kakao.com/_DcvJn/chat'
     },
   ];
 
@@ -91,9 +79,12 @@ const PricingSection = () => {
           ))}
         </div>
 
-        <p className="text-center text-slate-600 mt-12 md:mt-16">
-          두 플랜 모두 <a href="http://pf.kakao.com/_CYGdn/chat" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-600 font-semibold">카카오 채널 문의</a>를 통해 세부 사항을 조율하고 맞춤 견적을 받아보실 수 있습니다.
-        </p>
+        <div className="text-center mt-12">
+          <p className="text-lg text-slate-600">
+            위 플랜은 시작 가격이며, 사용량과 요구사항에 따라 맞춤 설정이 가능합니다. <br />
+            두 플랜 모두 <a href="http://pf.kakao.com/_DcvJn/chat" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-600 font-semibold">카카오 채널 문의</a>를 통해 세부 사항을 조율하고 맞춤 견적을 받아보실 수 있습니다.
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -78,14 +78,18 @@ const Footer = () => {
             <ul className="space-y-2 text-slate-400">
               <li>Email: <a href="mailto:contact@imate.ai" className="text-slate-300 hover:text-orange-400 transition-colors">contact@imate.ai</a></li>
               <li>
-                <a 
-                  href="https://pf.kakao.com/_CYGdn/chat"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition-colors inline-block mt-2"
-                >
-                  전문가 상담 신청
-                </a>
+                {/* Kakao Channel Link */}
+                <div className="flex justify-center items-center gap-4 bg-orange-100 p-4 rounded-lg">
+                  <img src="/images/kakao-icon.png" alt="Kakao" className="h-8 w-8"/>
+                  <a 
+                    href="http://pf.kakao.com/_DcvJn/chat" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="font-semibold text-orange-800 hover:text-orange-600 transition-colors"
+                  >
+                    전문가 상담 신청
+                  </a>
+                </div>
               </li>
             </ul>
           </div>

@@ -26,9 +26,9 @@ const HeroSection = () => {
     <section 
       id="hero" 
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center text-slate-800 pt-20 md:pt-0 overflow-hidden bg-gradient-to-b from-orange-50 to-white"
+      className="min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-72px)] flex items-center justify-center text-slate-800 overflow-hidden bg-gradient-to-b from-orange-50 to-white"
     >
-      <div className="container mx-auto px-4 py-16 md:py-24">
+      <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left Column: Text Content */}
           <div className="md:text-left text-center">
@@ -49,7 +49,7 @@ const HeroSection = () => {
               className={`flex flex-col sm:flex-row ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} transition-all duration-700 ease-out delay-300 md:justify-start justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12`}
             >
               <a
-                href="http://pf.kakao.com/_CYGdn/chat"
+                href="http://pf.kakao.com/_DcvJn/chat"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out w-full sm:w-auto"
@@ -57,7 +57,7 @@ const HeroSection = () => {
                 📩 AI 기능 체험하기
               </a>
               <a
-                href="http://pf.kakao.com/_CYGdn/chat"
+                href="http://pf.kakao.com/_DcvJn/chat"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white hover:bg-orange-500 border-2 border-orange-500 text-orange-500 hover:text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out w-full sm:w-auto"

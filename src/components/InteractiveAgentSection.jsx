@@ -52,10 +52,10 @@ const InteractiveAgentSection = () => {
   };
 
   const exampleQuestions = [
-    '이메일 자동응답은 어떻게 작동해요?',
-    '온보딩 메시지 예시 보여주세요',
-    'CRM 팔로우업은 어떤 기능인가요?',
-    '콜드메일 응답률을 어떻게 높이나요?',
+    'AI 이메일 자동응답 기능이 궁금해요.',
+    '고객 온보딩 자동화 방법을 알려주세요.',
+    'CRM 연동은 어떻게 진행되나요?',
+    '콜드메일 발송 기능에 대해 더 알고 싶어요.',
   ];
 
   return (
@@ -68,9 +68,9 @@ const InteractiveAgentSection = () => {
           아래 버튼을 클릭하거나, 궁금한 점을 직접 물어보세요.<br />GPT 기반 AI Agent가 당신의 질문에 응답합니다.<br />이 기능 도입을 원하시면 하단의 '이 기능 상담 도입하기' 버튼을 눌러 카카오 채널로 문의해주세요.
         </p>
 
-        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden" style={{ height: '600px', display: 'flex', flexDirection: 'column' }}>
+        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden" style={{ height: 'auto', minHeight: '500px', maxHeight: '70vh', display: 'flex', flexDirection: 'column' }}>
           {/* Chat Messages */}
-          <div className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-grow" style={{ maxHeight: 'calc(600px - 160px)' }}>
+          <div className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-grow">
             {messages.map((msg) => (
               <div key={msg.id} className={`flex ${msg.sender === 'ai' ? 'justify-start' : 'justify-end'}`}>
                 <div
@@ -127,10 +127,10 @@ const InteractiveAgentSection = () => {
 
         <div className="text-center mt-12 md:mt-16">
           <a
-            href="https://pf.kakao.com/_BLxmxjG"
+            href="http://pf.kakao.com/_DcvJn/chat"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform"
+            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
           >
             이 기능 도입 상담하기
           </a>

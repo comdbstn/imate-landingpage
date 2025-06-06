@@ -57,7 +57,7 @@ function App() {
             ))}
              <li>
               <a 
-                href="https://pf.kakao.com/_BLxmxjG" 
+                href="http://pf.kakao.com/_DcvJn/chat" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-md transition-colors"
@@ -95,7 +95,7 @@ function App() {
               ))}
               <li className="w-full mt-2 px-4 pb-2">
                 <a 
-                  href="https://pf.kakao.com/_BLxmxjG" 
+                  href="http://pf.kakao.com/_DcvJn/chat" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-md transition-colors"
