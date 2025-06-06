@@ -17,7 +17,7 @@ function App() {
     { name: "홈", id: "hero" },
     { name: "iMate 소개", id: "about" },
     { name: "AI 서비스", id: "services" },
-    { name: "GPT 체험", id: "interactive-gpt" },
+    { name: "AI 체험", id: "interactive-gpt" },
     { name: "요금제", id: "pricing" },
     { name: "고객 후기", id: "testimonials" },
     { name: "FAQ", id: "faq" },

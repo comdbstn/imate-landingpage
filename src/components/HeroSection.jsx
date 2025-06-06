@@ -28,6 +28,18 @@ const HeroSection = () => {
     };
   }, []);
 
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navbarHeight = document.querySelector("nav")?.offsetHeight || 70;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -58,9 +70,8 @@ const HeroSection = () => {
               className={`flex flex-col sm:flex-row ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} transition-all duration-500 ease-out delay-200 md:justify-start justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12`}
             >
               <a
-                href="http://pf.kakao.com/_DcvJn/chat"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#interactive-gpt"
+                onClick={(e) => scrollToSection(e, "interactive-gpt")}
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out w-full sm:w-auto"
               >
                 📩 AI 기능 체험하기
