@@ -5,23 +5,23 @@ const TestimonialsSection = () => {
     {
       quote:
         "iMate 도입 후, 반복적인 고객 문의 응대 시간이 80%나 줄었어요. 덕분에 저희 팀은 더 중요한 기획 업무에 집중할 수 있게 되었습니다. 특히 야간이나 주말에도 AI가 고객 요청을 처리해주니 정말 든든합니다.",
-      name: "김철수 대표",
-      company: "ABC커머스",
-      avatar: `https://ui-avatars.com/api/?name=김철수&background=FF7F50&color=fff`,
+      name: "김** 대표",
+      company: "A**커머스",
+      avatar: `https://ui-avatars.com/api/?name=김&background=FF7F50&color=fff`,
     },
     {
       quote:
         "신규 고객 온보딩 과정이 훨씬 체계적으로 자동화되어 만족도가 크게 향상되었습니다. 이전에는 담당자별로 안내 내용에 차이가 있었는데, iMate를 통해 일관된 고품질 정보를 제공할 수 있게 되었어요.",
-      name: "이영희 마케팅 팀장",
-      company: "주식회사 성장솔루션",
-      avatar: `https://ui-avatars.com/api/?name=이영희&background=4682B4&color=fff`,
+      name: "이** 마케팅 팀장",
+      company: "성**솔루션",
+      avatar: `https://ui-avatars.com/api/?name=이&background=4682B4&color=fff`,
     },
     {
       quote:
         "단순 문의는 AI가 처리하고, 복잡한 상담만 담당자에게 연결되니 업무 효율이 극대화되었습니다. 잠재 고객 발굴부터 계약 전환까지, iMate의 CRM 연동 기능이 큰 도움이 되고 있습니다.",
-      name: "박지성 영업이사",
-      company: "글로벌 B2B 파트너스",
-      avatar: `https://ui-avatars.com/api/?name=박지성&background=32CD32&color=fff`,
+      name: "박** 영업이사",
+      company: "글** B2B 파트너스",
+      avatar: `https://ui-avatars.com/api/?name=박&background=32CD32&color=fff`,
     },
   ];
 
