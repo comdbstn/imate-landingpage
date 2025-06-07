@@ -19,8 +19,11 @@ const InteractiveAgentSection = () => {
 
   // 새로운 메시지가 추가될 때마다 채팅창을 맨 아래로 스크롤
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    // 채팅이 시작된 이후에만 스크롤
+    if (chatStarted) {
+      chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, chatStarted]);
 
   const handleSendMessage = async (text) => {
     if (!chatStarted) setChatStarted(true);

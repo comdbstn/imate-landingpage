@@ -44,7 +44,7 @@ const HeroSection = () => {
     <section
       id="hero"
       ref={sectionRef}
-      className="min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-72px)] flex items-center justify-center text-slate-800 overflow-hidden bg-gradient-to-b from-orange-50 to-white"
+      className="h-screen flex items-center justify-center text-slate-800 pt-16 md:pt-[72px] bg-gradient-to-b from-orange-50 to-white overflow-hidden"
     >
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 items-center">

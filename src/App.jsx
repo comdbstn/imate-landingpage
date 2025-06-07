@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import TeamSection from './components/TeamSection';
@@ -24,6 +24,13 @@ function App() {
     { name: '고객 후기', id: 'testimonials' },
     { name: 'FAQ', id: 'faq' },
   ];
+
+  useEffect(() => {
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -159,8 +166,8 @@ function App() {
         )}
       </nav>
 
-      {/* Sections - Add pt-16 or similar to main content to avoid overlap with fixed navbar */}
-      <main> {/* Adjust based on actual nav height */}
+      {/* Sections */}
+      <main>
         <HeroSection />
         <AboutSection />
         <TeamSection />
