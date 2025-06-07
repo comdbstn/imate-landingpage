@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import TeamSection from './components/TeamSection';
@@ -51,6 +52,7 @@ function App() {
 
   return (
     <div className="bg-slate-50 text-slate-800 min-h-screen font-sans">
+      <Analytics />
       {/* Navigation Bar */}
       <nav className="bg-white text-slate-700 p-4 fixed w-full z-50 shadow-md">
         <div className="container mx-auto flex justify-between items-center">
