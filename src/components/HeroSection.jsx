@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
 // Placeholder icons (these might not be needed anymore if the section is removed)
 // const EmailIcon = () => <span className="text-3xl text-orange-500">📧</span>;
@@ -11,56 +11,76 @@ const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        observer.unobserve(entry.target);
-      }
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 },
+    );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => { if (sectionRef.current && observer) observer.unobserve(sectionRef.current); };
+    return () => {
+      if (sectionRef.current && observer)
+        observer.unobserve(sectionRef.current);
+    };
   }, []);
 
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navbarHeight = document.querySelector("nav")?.offsetHeight || 70;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  };
+
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center text-slate-800 pt-16 md:pt-[72px] overflow-hidden bg-gradient-to-b from-orange-50 to-white"
+      className="min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-72px)] flex items-center justify-center text-slate-800 overflow-hidden bg-gradient-to-b from-orange-50 to-white"
     >
-      <div className="container mx-auto px-4 py-16 md:py-24">
+      <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left Column: Text Content */}
           <div className="md:text-left text-center">
-            <h1 
-              className={`text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+            <h1
+              className={`text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight transition-all duration-500 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
             >
               <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-transparent bg-clip-text">
-                우리팀에 신입이<br />들어왔어요!
+                우리팀에 신입이
+                <br />
+                들어왔어요!
               </span>
             </h1>
-            <p 
-              className={`text-lg md:text-xl text-slate-600 mb-10 max-w-xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} transition-all duration-700 ease-out delay-150 md:mx-0 mx-auto`}
+            <p
+              className={`text-lg md:text-xl text-slate-600 mb-10 max-w-xl ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} transition-all duration-500 ease-out delay-100 md:mx-0 mx-auto`}
             >
-              이메일 응대, 고객 온보딩, 리드 관리, 콜드메일까지<br />
+              이메일 응대, 고객 온보딩, 리드 관리, 콜드메일까지
+              <br />
               당신의 업무를 대신하는 4가지 AI Agent를 지금 만나보세요.
             </p>
-            <div 
-              className={`flex flex-col sm:flex-row ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} transition-all duration-700 ease-out delay-300 md:justify-start justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12`}
+            <div
+              className={`flex flex-col sm:flex-row ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} transition-all duration-500 ease-out delay-200 md:justify-start justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12`}
             >
               <a
-                href="http://pf.kakao.com/_CYGdn/chat"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out w-full sm:w-auto"
+                href="#interactive-gpt"
+                onClick={(e) => scrollToSection(e, "interactive-gpt")}
+                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out w-full sm:w-auto"
               >
                 📩 AI 기능 체험하기
               </a>
               <a
-                href="http://pf.kakao.com/_CYGdn/chat"
+                href="http://pf.kakao.com/_DcvJn/chat"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white hover:bg-orange-500 border-2 border-orange-500 text-orange-500 hover:text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out w-full sm:w-auto"
+                className="bg-white hover:bg-orange-500 border-2 border-orange-500 text-orange-500 hover:text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out w-full sm:w-auto"
               >
                 📞 무료 상담받기
               </a>
@@ -68,12 +88,12 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column: Character Image */}
-          <div 
-            className={`hidden md:flex justify-center items-center transition-all duration-1000 ease-out delay-[450ms] ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
+          <div
+            className={`hidden md:flex justify-center items-center transition-all duration-700 ease-out delay-300 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
           >
-            <img 
-              src="/images/imate-character.png" 
-              alt="iMate Character" 
+            <img
+              src="/images/imate-character.png"
+              alt="iMate Character"
               className="max-w-md lg:max-w-lg xl:max-w-xl h-auto"
             />
           </div>
@@ -112,4 +132,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection; 
+export default HeroSection;
