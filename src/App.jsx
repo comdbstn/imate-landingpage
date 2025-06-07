@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
+import TeamSection from './components/TeamSection';
 import ServicesSection from './components/ServicesSection';
 import InteractiveAgentSection from './components/InteractiveAgentSection';
 import PricingSection from './components/PricingSection';
@@ -19,6 +20,7 @@ function App() {
     { name: 'AI 서비스', id: 'services' },
     { name: 'GPT 체험', id: 'interactive-gpt' },
     { name: '요금제', id: 'pricing' },
+    { name: '팀 소개', id: 'team' },
     { name: '고객 후기', id: 'testimonials' },
     { name: 'FAQ', id: 'faq' },
   ];
@@ -109,9 +111,10 @@ function App() {
       </nav>
 
       {/* Sections - Add pt-16 or similar to main content to avoid overlap with fixed navbar */}
-      <main className="pt-16 md:pt-[72px]"> {/* Adjust based on actual nav height */}
+      <main> {/* Adjust based on actual nav height */}
         <HeroSection />
         <AboutSection />
+        <TeamSection />
         <ServicesSection />
         <InteractiveAgentSection />
         <PricingSection />

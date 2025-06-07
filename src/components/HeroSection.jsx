@@ -26,7 +26,7 @@ const HeroSection = () => {
     <section 
       id="hero" 
       ref={sectionRef}
-      className="min-h-screen flex items-center justify-center text-slate-800 pt-20 md:pt-0 overflow-hidden bg-gradient-to-b from-orange-50 to-white"
+      className="min-h-screen flex items-center justify-center text-slate-800 pt-16 md:pt-[72px] overflow-hidden bg-gradient-to-b from-orange-50 to-white"
     >
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="grid md:grid-cols-2 gap-8 items-center">

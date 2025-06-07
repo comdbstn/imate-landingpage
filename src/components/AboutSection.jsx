@@ -111,30 +111,6 @@ const AboutSection = () => {
             *SaaS, 온라인 교육, 컨설팅 등 다양한 분야에 적용 가능
           </p>
         </div>
-
-        <div className="mt-12 md:mt-16">
-          <h3 
-            className={`text-2xl md:text-3xl font-semibold mb-8 text-slate-900 transition-all duration-700 ease-out delay-[900ms] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-          >
-            iMate의 핵심 AI Agent
-          </h3>
-          <div className="flex justify-center items-center flex-wrap gap-4 md:gap-6">
-            {[ 
-              { Icon: EmailIcon, name: '이메일 자동응답', delay: "delay-[1000ms]" },
-              { Icon: OnboardingIcon, name: '고객 온보딩 자동화', delay: "delay-[1100ms]" },
-              { Icon: CrmIcon, name: 'CRM 팔로우업', delay: "delay-[1200ms]" },
-              { Icon: ColdMailIcon, name: '콜드메일 자동화', delay: "delay-[1300ms]" },
-            ].map((agent, index) => (
-              <div 
-                key={agent.name} 
-                className={`flex flex-col items-center p-4 sm:p-6 bg-slate-50 rounded-lg shadow-lg hover:shadow-orange-500/20 hover:scale-105 transition-all duration-300 ease-out w-36 h-36 sm:w-40 sm:h-40 justify-center ${agent.delay} ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
-              >
-                <agent.Icon />
-                <span className="mt-2 text-sm sm:text-base text-center text-slate-700 font-medium">{agent.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

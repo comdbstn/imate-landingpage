@@ -16,6 +16,11 @@ const InteractiveAgentSection = () => {
     setMessages([initialMessage]);
   }, []);
 
+  // 새로운 메시지가 추가될 때마다 채팅창을 맨 아래로 스크롤
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   const handleSendMessage = async (text) => {
     const userMessageText = text.trim();
     if (!userMessageText) return;
@@ -72,72 +77,4 @@ const InteractiveAgentSection = () => {
           {/* Chat Messages */}
           <div className="p-4 sm:p-6 space-y-4 overflow-y-auto flex-grow" style={{ maxHeight: 'calc(600px - 160px)' }}>
             {messages.map((msg) => (
-              <div key={msg.id} className={`flex ${msg.sender === 'ai' ? 'justify-start' : 'justify-end'}`}>
-                <div
-                  className={`max-w-[80%] sm:max-w-[70%] px-4 py-3 rounded-2xl shadow-sm ${msg.sender === 'ai' ? 'bg-orange-500 text-white rounded-bl-none' : 'bg-slate-200 text-slate-800 rounded-br-none'}`}
-                  style={{ whiteSpace: 'pre-wrap' }}
-                >
-                  {msg.text}
-                </div>
-              </div>
-            ))}
-            {isLoading && (
-                <div className="flex justify-start">
-                    <div className="px-4 py-3 rounded-2xl shadow-sm bg-orange-500 text-white rounded-bl-none">
-                        <span className="animate-pulse">AI가 응답을 생성 중입니다...</span>
-                    </div>
-                </div>
-            )}
-            <div ref={chatEndRef} />
-          </div>
-
-          {/* Example Questions Buttons & Input Area */}
-          <div className="p-4 border-t border-slate-200 bg-white">
-            <p className="text-sm text-slate-500 mb-3 text-center">예시 질문:</p>
-            <div className="flex flex-wrap justify-center gap-2 mb-4">
-              {exampleQuestions.map((q, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleSendMessage(q)}
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm py-2 px-3 rounded-lg transition-colors shadow-sm"
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
-          
-            <form onSubmit={(e) => { e.preventDefault(); handleSendMessage(inputValue); }} className="flex items-center space-x-2">
-              <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder="AI에게 질문해보세요..."
-                className="flex-grow p-3 bg-slate-50 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-transparent outline-none text-slate-900 placeholder-slate-400"
-              />
-              <button
-                type="submit"
-                disabled={isLoading || !inputValue.trim()}
-                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-5 rounded-lg transition-colors disabled:opacity-60 disabled:cursor-not-allowed shadow-sm hover:shadow-md"
-              >
-                전송
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div className="text-center mt-12 md:mt-16">
-          <a
-            href="https://pf.kakao.com/_BLxmxjG"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-transform"
-          >
-            이 기능 도입 상담하기
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default InteractiveAgentSection; 
+              <div key={msg.id} className={`
