@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Icons for metrics cards - changed to orange for light theme
 const RobotIcon = () => (
@@ -20,6 +21,7 @@ const CrmIcon = () => <span className="text-2xl text-orange-500">📊</span>;
 const ColdMailIcon = () => <span className="text-2xl text-orange-500">📫</span>;
 
 const AboutSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -44,9 +46,9 @@ const AboutSection = () => {
   const metricsData = [
     {
       icon: <RobotIcon />,
-      value: "70%",
-      title: "업무 시간 절감",
-      description: "AI 기반 자동화 시스템으로<br/>업무 효율성 대폭 향상",
+      value: t('about.metrics.timeReduction.value'),
+      title: t('about.metrics.timeReduction.title'),
+      description: t('about.metrics.timeReduction.description'),
       bgColor: "bg-amber-50", // Light theme background for metric cards
       textColor: "text-amber-600",
       valueColor: "text-amber-500",
@@ -54,9 +56,9 @@ const AboutSection = () => {
     },
     {
       icon: <TrendingUpIcon />,
-      value: "95%",
-      title: "고객 만족도 달성",
-      description: "AI와 자동화를 활용한<br/>신속한 고객 응대",
+      value: t('about.metrics.satisfaction.value'),
+      title: t('about.metrics.satisfaction.title'),
+      description: t('about.metrics.satisfaction.description'),
       bgColor: "bg-orange-50",
       textColor: "text-orange-600",
       valueColor: "text-orange-500",
@@ -64,9 +66,9 @@ const AboutSection = () => {
     },
     {
       icon: <UsersIcon />,
-      value: "3배",
-      title: "리드 전환율 증가",
-      description: "타겟 고객 맞춤 전략으로<br/>합리적인 비용 제공",
+      value: t('about.metrics.conversion.value'),
+      title: t('about.metrics.conversion.title'),
+      description: t('about.metrics.conversion.description'),
       bgColor: "bg-red-50", // Using a slightly different shade for variety if desired
       textColor: "text-red-600",
       valueColor: "text-red-500",
@@ -85,23 +87,31 @@ const AboutSection = () => {
           <p
             className={`text-sm md:text-base font-semibold text-orange-500 uppercase tracking-wider mb-3 md:mb-4 transition-all duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
           >
-            About iMate
+            {t('about.subtitle')}
           </p>
           <h2
             className={`text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 md:mb-8 transition-all duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
           >
-            iMate는
-            <br />
-            <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-transparent bg-clip-text">
-              어떤 서비스인가요?
-            </span>
+            {t('about.title').split('\n').map((line, index) => (
+              <React.Fragment key={index}>
+                {index === 0 ? line : (
+                  <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-transparent bg-clip-text">
+                    {line}
+                  </span>
+                )}
+                {index === 0 && <br />}
+              </React.Fragment>
+            ))}
           </h2>
           <p
             className={`text-lg md:text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto transition-all duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
           >
-            기술과 경험을 바탕으로, 반복적인 비즈니스 업무를 대신하는
-            <br />
-            AI 기반의 실전 자동화 시스템 파트너입니다.
+            {t('about.description').split('\n').map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                {index === 0 && <br />}
+              </React.Fragment>
+            ))}
           </p>
         </div>
 
@@ -139,7 +149,7 @@ const AboutSection = () => {
           <p
             className={`text-sm text-slate-400 mt-10 transition-all duration-700 ease-out delay-[400ms] ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
           >
-            *SaaS, 온라인 교육, 컨설팅 등 다양한 분야에 적용 가능
+            {t('about.note')}
           </p>
         </div>
       </div>

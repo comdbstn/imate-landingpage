@@ -1,0 +1,80 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="appGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGrad)"/>
+  
+  <!-- Mobile device -->
+  <g transform="translate(100,60)">
+    <!-- Device frame -->
+    <rect x="0" y="0" width="80" height="140" rx="12" ry="12" fill="url(#appGrad)" stroke="#64748b" stroke-width="2"/>
+    <!-- Screen -->
+    <rect x="8" y="15" width="64" height="110" rx="6" ry="6" fill="url(#screenGrad)"/>
+    <!-- Screen content -->
+    <rect x="12" y="20" width="56" height="8" fill="#8b5cf6" opacity="0.3"/>
+    <rect x="12" y="32" width="40" height="4" fill="#64748b" opacity="0.5"/>
+    <rect x="12" y="38" width="48" height="4" fill="#64748b" opacity="0.5"/>
+    <rect x="12" y="48" width="56" height="20" fill="#8b5cf6" opacity="0.2"/>
+    <circle cx="40" cy="85" r="15" fill="#8b5cf6" opacity="0.3"/>
+    <rect x="12" y="105" width="56" height="4" fill="#64748b" opacity="0.3"/>
+    <rect x="12" y="112" width="40" height="4" fill="#64748b" opacity="0.3"/>
+    <!-- Home button -->
+    <circle cx="40" cy="134" r="3" fill="#64748b" opacity="0.4"/>
+  </g>
+  
+  <!-- Desktop/laptop -->
+  <g transform="translate(220,80)">
+    <!-- Laptop base -->
+    <rect x="0" y="80" width="120" height="8" rx="4" ry="4" fill="#64748b"/>
+    <!-- Screen -->
+    <rect x="10" y="0" width="100" height="80" rx="6" ry="6" fill="#334155" stroke="#64748b" stroke-width="2"/>
+    <!-- Screen content -->
+    <rect x="15" y="5" width="90" height="70" rx="3" ry="3" fill="url(#screenGrad)"/>
+    <!-- Window content -->
+    <rect x="20" y="10" width="80" height="6" fill="#8b5cf6" opacity="0.3"/>
+    <rect x="20" y="20" width="60" height="3" fill="#64748b" opacity="0.5"/>
+    <rect x="20" y="25" width="70" height="3" fill="#64748b" opacity="0.5"/>
+    <rect x="20" y="32" width="80" height="15" fill="#8b5cf6" opacity="0.2"/>
+    <rect x="20" y="50" width="35" height="20" fill="#64748b" opacity="0.1"/>
+    <rect x="60" y="50" width="35" height="20" fill="#64748b" opacity="0.1"/>
+    <!-- Trackpad -->
+    <rect x="45" y="85" width="30" height="20" rx="3" ry="3" fill="#475569" opacity="0.5"/>
+  </g>
+  
+  <!-- Code elements -->
+  <g fill="#8b5cf6" font-family="monospace" font-size="12" opacity="0.7">
+    <text x="50" y="230">{'<'}Component{'>'}</text>
+    <text x="280" y="230">useState()</text>
+    <text x="320" y="250">API</text>
+    <text x="60" y="250">React</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <g stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.5">
+    <path d="M180,130 L220,130" stroke-dasharray="5,5"/>
+    <circle cx="200" cy="130" r="3" fill="#8b5cf6"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="40" text-anchor="middle" fill="#8b5cf6" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
+    웹앱 개발
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="200" y="280" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="14">
+    React • Vue.js • 반응형 디자인
+  </text>
+</svg>

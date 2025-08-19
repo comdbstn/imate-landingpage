@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Icons - General
 const CheckCircleIcon = () => (
@@ -94,14 +95,22 @@ const CrmIcon = () => (
 const ColdMailIcon = () => (
   <span className="text-3xl md:text-4xl text-orange-500">📫</span>
 );
+const WebIcon = () => (
+  <span className="text-3xl md:text-4xl text-blue-500">🌐</span>
+);
+const CrawlerIcon = () => (
+  <span className="text-3xl md:text-4xl text-green-500">🕷️</span>
+);
+const AppIcon = () => (
+  <span className="text-3xl md:text-4xl text-purple-500">📱</span>
+);
 
 const servicesData = [
   {
     id: "email",
     name: "이메일 처리 자동화",
     Icon: EmailIcon,
-    description:
-      "반복적인 이메일 분류, 응대, 전달을 자동화하여 시간을 절약합니다.",
+    description: "반복적인 이메일 분류, 응대, 전달을 자동화하여 시간을 절약합니다.",
     details: {
       image: "/images/services/email-autoresponder.png",
       title: "AI 이메일 비서",
@@ -147,8 +156,7 @@ const servicesData = [
     id: "onboarding",
     name: "고객 온보딩",
     Icon: OnboardingIcon,
-    description:
-      "신규 고객에게 제품 사용법 안내, 환영 메시지 발송 등을 자동화합니다.",
+    description: "신규 고객에게 제품 사용법 안내, 환영 메시지 발송 등을 자동화합니다.",
     details: {
       image: "/images/services/onboarding-automation.png",
       title: "AI 온보딩 전문가",
@@ -192,8 +200,7 @@ const servicesData = [
     id: "crm",
     name: "리드 관리",
     Icon: CrmIcon,
-    description:
-      "영업 기회를 자동으로 포착하여 CRM에 기록하고 담당자에게 알립니다.",
+    description: "영업 기회를 자동으로 포착하여 CRM에 기록하고 담당자에게 알립니다.",
     details: {
       image: "/images/services/crm-followup.png",
       title: "AI 리드 관리 매니저",
@@ -238,8 +245,7 @@ const servicesData = [
     id: "coldmail",
     name: "콜드메일 발송",
     Icon: ColdMailIcon,
-    description:
-      "타겟 고객 목록을 기반으로 개인화된 콜드메일을 자동으로 발송합니다.",
+    description: "타겟 고객 목록을 기반으로 개인화된 콜드메일을 자동으로 발송합니다.",
     details: {
       image: "/images/services/coldmail-automation.png",
       title: "AI 콜드메일 전문가",
@@ -279,6 +285,132 @@ const servicesData = [
       },
     },
   },
+  {
+    id: "webcrawling",
+    name: "웹사이트 크롤링",
+    Icon: CrawlerIcon,
+    description: "웹사이트에서 자동으로 데이터를 수집하고 분석하여 비즈니스 인사이트를 제공합니다.",
+    details: {
+      image: "/images/services/web-crawling.png",
+      title: "AI 웹 크롤링 전문가",
+      text: "경쟁사 가격 모니터링, 시장 동향 분석, 리드 발굴 등을 위한 맞춤형 크롤링 솔루션을 제공합니다.",
+      link: "http://pf.kakao.com/_DcvJn/chat",
+      recommendedIndustries: "이커머스, 부동산, 마케팅 에이전시, 리서치 기업",
+      structuredContent: {
+        problem: {
+          title: "문제 상황",
+          description: "수동 데이터 수집의 비효율성, 실시간 시장 모니터링의 어려움, 대량 데이터 처리 한계"
+        },
+        solution: {
+          title: "iMate 솔루션",
+          description: "AI 기반 스마트 크롤링으로 필요한 데이터를 자동 수집하고 실시간 분석 리포트를 제공합니다."
+        },
+        features: {
+          title: "주요 기능 및 특징",
+          items: [
+            "지능형 데이터 수집 및 정제",
+            "실시간 모니터링 및 알림",
+            "다양한 웹사이트 대응",
+            "API 연동 및 데이터베이스 저장",
+            "맞춤형 분석 리포트 생성"
+          ]
+        },
+        effects: {
+          title: "도입 효과",
+          items: [
+            "데이터 수집 시간 95% 절감",
+            "실시간 시장 모니터링",
+            "정확도 99% 이상 보장",
+            "월 수백만 데이터 처리 가능"
+          ]
+        }
+      }
+    }
+  },
+  {
+    id: "webapp",
+    name: "웹앱 개발",
+    Icon: AppIcon,
+    description: "사용자 친화적인 웹 애플리케이션을 최신 기술로 빠르게 개발합니다.",
+    details: {
+      image: "/images/services/webapp-development.png",
+      title: "웹앱 개발 전문가",
+      text: "React, Vue.js 등 최신 프레임워크를 활용하여 반응형이고 성능 최적화된 웹앱을 제작합니다.",
+      link: "http://pf.kakao.com/_DcvJn/chat",
+      recommendedIndustries: "스타트업, SaaS 기업, 온라인 서비스, 교육 플랫폼",
+      structuredContent: {
+        problem: {
+          title: "문제 상황",
+          description: "복잡한 개발 과정, 높은 개발 비용, 긴 개발 기간, 유지보수의 어려움"
+        },
+        solution: {
+          title: "iMate 솔루션",
+          description: "AI 도구와 자동화를 활용하여 빠르고 효율적인 웹앱 개발을 진행합니다."
+        },
+        features: {
+          title: "주요 기능 및 특징",
+          items: [
+            "최신 프레임워크 활용",
+            "반응형 디자인",
+            "API 연동 및 데이터베이스",
+            "사용자 인증 시스템",
+            "실시간 기능 구현"
+          ]
+        },
+        effects: {
+          title: "도입 효과",
+          items: [
+            "개발 기간 50% 단축",
+            "비용 절감 40%",
+            "높은 사용자 경험",
+            "확장성 보장"
+          ]
+        }
+      }
+    }
+  },
+  {
+    id: "landing",
+    name: "랜딩페이지 제작",
+    Icon: WebIcon,
+    description: "전환율 최적화된 고품질 랜딩페이지를 빠르게 제작합니다.",
+    details: {
+      image: "/images/services/landing-page.png",
+      title: "랜딩페이지 제작 전문가",
+      text: "마케팅 목표에 맞춘 고전환율 랜딩페이지를 디자인부터 개발까지 원스톱으로 제작합니다.",
+      link: "http://pf.kakao.com/_DcvJn/chat",
+      recommendedIndustries: "마케팅 에이전시, 스타트업, 온라인 쇼핑몰, 서비스 기업",
+      structuredContent: {
+        problem: {
+          title: "문제 상황",
+          description: "낮은 전환율, 느린 로딩 속도, 모바일 최적화 부족, 높은 제작 비용"
+        },
+        solution: {
+          title: "iMate 솔루션",
+          description: "전환율 최적화와 성능을 고려한 맞춤형 랜딩페이지를 저렴한 비용으로 빠르게 제작합니다."
+        },
+        features: {
+          title: "주요 기능 및 특징",
+          items: [
+            "전환율 최적화 디자인",
+            "빠른 로딩 속도",
+            "모바일 퍼스트 설계",
+            "SEO 최적화",
+            "분석 도구 연동"
+          ]
+        },
+        effects: {
+          title: "도입 효과",
+          items: [
+            "전환율 평균 40% 향상",
+            "로딩 속도 3초 이내",
+            "모바일 사용자 경험 최적화",
+            "제작 기간 1주일 내 완성"
+          ]
+        }
+      }
+    }
+  }
 ];
 
 const SectionCard = ({ icon, title, children }) => (
@@ -424,6 +556,7 @@ const ServiceModal = ({ service, onClose }) => {
 };
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
   const [selectedService, setSelectedService] = useState(null);
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -466,16 +599,15 @@ const ServicesSection = () => {
         <h2
           className={`text-4xl md:text-5xl font-bold text-center mb-4 text-slate-900 transition-all duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
         >
-          iMate <span className="text-orange-500">AI Agent</span> 4종 소개
+          iMate <span className="text-orange-500">AI Agent</span> & <span className="text-blue-500">개발 서비스</span>
         </h2>
         <p
-          className={`text-lg text-slate-600 text-center mb-12 md:mb-16 max-w-2xl mx-auto transition-all duration-700 ease-out delay-150 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+          className={`text-lg text-slate-600 text-center mb-12 md:mb-16 max-w-3xl mx-auto transition-all duration-700 ease-out delay-150 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
         >
-          당신의 비즈니스 성장을 가속화할 4가지 핵심 AI 자동화 에이전트를
-          소개합니다. 각 서비스의 상세 내용을 확인하고, 직접 체험해보세요.
+          AI 자동화 에이전트부터 웹 개발까지, 비즈니스 성장을 위한 모든 디지털 솔루션을 제공합니다.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {servicesData.map((service, index) => (
             <div
               key={service.id}
@@ -511,13 +643,15 @@ const ServicesSection = () => {
 
         <div className="text-center mt-16">
           <h3 className="text-3xl font-bold mb-4">
-            AI로 해결하고 싶은
-            <br />
-            다른 업무가 있으신가요?
+            {t('services.otherQuestion').split('\n').map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                {index === 0 && <br />}
+              </React.Fragment>
+            ))}
           </h3>
           <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-            iMate는 특정 업무에 국한되지 않습니다. 여러분의 팀이 겪는 모든
-            비효율을 AI로 해결할 수 있도록 맞춤 솔루션을 제공합니다.
+            {t('services.customSolution')}
           </p>
           <a
             href="http://pf.kakao.com/_DcvJn/chat"
@@ -525,7 +659,7 @@ const ServicesSection = () => {
             rel="noopener noreferrer"
             className="bg-white hover:bg-orange-50 text-orange-500 font-bold py-4 px-10 rounded-full text-xl border-2 border-orange-500 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
-            💡 맞춤 AI 에이전트 문의하기
+            {t('services.inquireCustom')}
           </a>
         </div>
       </div>

@@ -1,18 +1,16 @@
 import React from "react";
+import { useLanguage } from '../contexts/LanguageContext';
 
 const PricingSection = () => {
+  const { t } = useLanguage();
+  
   const plans = [
     {
-      name: "Standard",
-      price: "월 30만원",
-      priceDescription: "최초 1회 개발비 50만원 별도",
-      features: [
-        "AI 자동화 기능 1개 선택",
-        "월 1,000건 처리",
-        "기본 연동 지원",
-        "이메일 및 채팅 지원",
-      ],
-      cta: "상담 문의하기",
+      name: t('pricing.standard.name'),
+      price: t('pricing.standard.price'),
+      priceDescription: t('pricing.standard.description'),
+      features: t('pricing.standard.features'),
+      cta: t('pricing.standard.cta'),
       bgColor: "bg-white",
       textColor: "text-slate-800",
       buttonClass: "bg-slate-200 hover:bg-slate-300 text-slate-800",
@@ -20,22 +18,29 @@ const PricingSection = () => {
       kakaoLink: "http://pf.kakao.com/_DcvJn/chat",
     },
     {
-      name: "엔터프라이즈",
-      price: "견적 문의",
-      priceDescription: "비즈니스에 최적화된 솔루션",
-      features: [
-        "맞춤형 AI 제작",
-        "처리 건수 무제한 협의",
-        "전용 인프라 구축",
-        "전담 매니저 및 최우선 기술 지원",
-      ],
-      cta: "도입 문의하기",
-      bgColor: "bg-orange-50", // Emphasize with a light orange background
+      name: t('pricing.enterprise.name'),
+      price: t('pricing.enterprise.price'),
+      priceDescription: t('pricing.enterprise.description'),
+      features: t('pricing.enterprise.features'),
+      cta: t('pricing.enterprise.cta'),
+      bgColor: "bg-orange-50",
       textColor: "text-slate-900",
-      buttonClass:
-        "bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white", // Gradient button
+      buttonClass: "bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white",
       popular: true,
-      badgeText: "맞춤형 솔루션",
+      badgeText: t('pricing.enterprise.badge'),
+      kakaoLink: "http://pf.kakao.com/_DcvJn/chat",
+    },
+    {
+      name: t('pricing.development.name'),
+      price: t('pricing.development.price'),
+      priceDescription: t('pricing.development.description'),
+      features: t('pricing.development.features'),
+      cta: t('pricing.development.cta'),
+      bgColor: "bg-gradient-to-br from-blue-50 to-purple-50",
+      textColor: "text-slate-900",
+      buttonClass: "bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white",
+      popular: false,
+      special: true,
       kakaoLink: "http://pf.kakao.com/_DcvJn/chat",
     },
   ];
@@ -44,14 +49,13 @@ const PricingSection = () => {
     <section id="pricing" className="py-16 md:py-24 bg-slate-100">
       <div className="container mx-auto px-6 md:px-12">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-slate-900">
-          iMate <span className="text-orange-500">프로그램</span> 요금제
+          {t('pricing.title')}
         </h2>
         <p className="text-lg text-slate-600 text-center mb-12 md:mb-16 max-w-2xl mx-auto">
-          귀사의 비즈니스 규모와 필요에 맞는 합리적인 플랜을 선택하세요. 두 플랜
-          모두 전문가의 상담을 통해 상세 내용을 조율할 수 있습니다.
+          {t('pricing.subtitle')}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <div
               key={index}
@@ -117,17 +121,16 @@ const PricingSection = () => {
 
         <div className="text-center mt-12">
           <p className="text-lg text-slate-600">
-            위 플랜은 시작 가격이며, 사용량과 요구사항에 따라 맞춤 설정이
-            가능합니다. <br />두 플랜 모두{" "}
+            {t('pricing.note')} <br />
             <a
               href="http://pf.kakao.com/_DcvJn/chat"
               target="_blank"
               rel="noopener noreferrer"
               className="text-orange-500 hover:text-orange-600 font-semibold transition-colors duration-200"
             >
-              카카오 채널 문의
+              {t('pricing.kakaoInquiry')}
             </a>
-            를 통해 세부 사항을 조율하고 맞춤 견적을 받아보실 수 있습니다.
+            {t('pricing.consultationText')}
           </p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Placeholder icons (these might not be needed anymore if the section is removed)
 // const EmailIcon = () => <span className="text-3xl text-orange-500">📧</span>;
@@ -7,6 +8,7 @@ import React, { useState, useEffect, useRef } from "react";
 // const ColdMailIcon = () => <span className="text-3xl text-orange-500">📫</span>;
 
 const HeroSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -44,8 +46,14 @@ const HeroSection = () => {
     <section
       id="hero"
       ref={sectionRef}
-      className="h-screen flex items-center justify-center text-slate-800 pt-16 md:pt-[72px] bg-gradient-to-b from-orange-50 to-white overflow-hidden"
+      className="h-screen flex items-center justify-center text-slate-800 pt-16 md:pt-[72px] bg-gradient-to-br from-orange-50 via-amber-50 to-white overflow-hidden relative"
     >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-orange-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute top-40 right-10 w-32 h-32 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-20 w-32 h-32 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+      </div>
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left Column: Text Content */}
@@ -54,17 +62,23 @@ const HeroSection = () => {
               className={`text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight transition-all duration-500 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
             >
               <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-transparent bg-clip-text">
-                우리팀에 신입이
-                <br />
-                들어왔어요!
+                {t('hero.title').split('\n').map((line, index) => (
+                  <React.Fragment key={index}>
+                    {line}
+                    {index === 0 && <br />}
+                  </React.Fragment>
+                ))}
               </span>
             </h1>
             <p
               className={`text-lg md:text-xl text-slate-600 mb-10 max-w-xl ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} transition-all duration-500 ease-out delay-100 md:mx-0 mx-auto`}
             >
-              이메일 응대, 고객 온보딩, 리드 관리, 콜드메일까지
-              <br />
-              당신의 업무를 대신하는 4가지 AI Agent를 지금 만나보세요.
+              {t('hero.subtitle').split('\n').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  {index === 0 && <br />}
+                </React.Fragment>
+              ))}
             </p>
             <div
               className={`flex flex-col sm:flex-row ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"} transition-all duration-500 ease-out delay-200 md:justify-start justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12`}
@@ -74,7 +88,7 @@ const HeroSection = () => {
                 onClick={(e) => scrollToSection(e, "interactive-gpt")}
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out w-full sm:w-auto"
               >
-                📩 AI 기능 체험하기
+                {t('hero.tryAi')}
               </a>
               <a
                 href="http://pf.kakao.com/_DcvJn/chat"
@@ -82,7 +96,7 @@ const HeroSection = () => {
                 rel="noopener noreferrer"
                 className="bg-white hover:bg-orange-500 border-2 border-orange-500 text-orange-500 hover:text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out w-full sm:w-auto"
               >
-                📞 무료 상담받기
+                {t('hero.getConsultation')}
               </a>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const DirectorIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -19,44 +20,29 @@ const PMIcon = () => (
   </svg>
 );
 
-const teamMembers = [
-  {
-    role: 'Director',
-    Icon: DirectorIcon,
-    details: [
-      '30개 이상의 사업을 경험',
-      '마케팅 자동화 5년차 시니어',
-      '풀스택 엔지니어',
-    ],
-    summary: '프로젝트 관리 총괄',
-  },
-  {
-    role: 'Tech Lead',
-    Icon: TechLeadIcon,
-    details: [
-      '서울대학교 지구환경과학부 21',
-      '풀스텍 엔지니어',
-      '자동화 툴 전문가',
-      '시스템 아키텍처 설계',
-    ],
-    summary: '개발 & 기술 스택 총괄',
-  },
-  {
-    role: 'PM',
-    Icon: PMIcon,
-    details: [
-      '서울대학교 정치외교학부 18',
-      '스타트업 6년차 PM',
-      '해외 대기업 재직',
-      '외부 에이전시 PM 경력',
-    ],
-    summary: '프로젝트 기획 및 디자인, CS',
-  },
-];
 
 const TeamSection = () => {
+  const { t } = useLanguage();
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  
+  const teamMembers = [
+    {
+      role: t('team.director.title'),
+      Icon: DirectorIcon,
+      description: t('team.director.description'),
+    },
+    {
+      role: t('team.techlead.title'),
+      Icon: TechLeadIcon,
+      description: t('team.techlead.description'),
+    },
+    {
+      role: t('team.pm.title'),
+      Icon: PMIcon,
+      description: t('team.pm.description'),
+    },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -88,10 +74,10 @@ const TeamSection = () => {
     >
       <div className="container mx-auto px-6 md:px-12 text-center">
         <h2 className={`text-4xl md:text-5xl font-bold mb-4 transition-all duration-700 ease-out text-slate-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-          우리는 누구인가요?
+          {t('team.heading')}
         </h2>
         <p className={`text-lg text-slate-500 mb-12 md:mb-16 max-w-2xl mx-auto transition-all duration-700 ease-out delay-150 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-          대한민국 최고 수준의 역량을 보유한 최고의 전문가들이 함께합니다
+          {t('team.title')}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -107,14 +93,11 @@ const TeamSection = () => {
               <div className="bg-orange-500 text-white text-sm font-semibold rounded-full px-4 py-1 mb-4">
                 {member.role}
               </div>
-              <ul className="text-slate-600 space-y-2 text-center flex-grow mb-6">
-                {member.details.map((detail, i) => (
-                  <li key={i}>{detail}</li>
+              <div className="text-slate-600 space-y-2 text-center flex-grow mb-6">
+                {member.description.split('\n').map((line, i) => (
+                  <p key={i} className="text-sm">{line}</p>
                 ))}
-              </ul>
-              <p className="text-orange-600 font-bold border-t border-slate-200 pt-4 w-full">
-                {member.summary}
-              </p>
+              </div>
             </div>
           ))}
         </div>

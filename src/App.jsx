@@ -1,29 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import TeamSection from './components/TeamSection';
 import ServicesSection from './components/ServicesSection';
+import LiveCodingDemo from './components/LiveCodingDemo';
+import CompetitiveAdvantage from './components/CompetitiveAdvantage';
+import PortfolioSection from './components/PortfolioSection';
 import InteractiveAgentSection from './components/InteractiveAgentSection';
 import PricingSection from './components/PricingSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
+import LanguageSelector from './components/LanguageSelector';
 
-// Section Components (will be created later)
-// import Footer from './components/Footer';
-
-function App() {
+const AppContent = () => {
+  const { t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navItems = [
-    { name: '홈', id: 'hero' },
-    { name: 'iMate 소개', id: 'about' },
-    { name: 'AI 서비스', id: 'services' },
-    { name: 'AI 체험', id: 'interactive-gpt' },
-    { name: '요금제', id: 'pricing' },
-    { name: '팀 소개', id: 'team' },
-    { name: '고객 후기', id: 'testimonials' },
-    { name: 'FAQ', id: 'faq' },
+    { name: t('nav.home'), id: 'hero' },
+    { name: t('nav.about'), id: 'about' },
+    { name: t('nav.services'), id: 'services' },
+    { name: t('nav.portfolio'), id: 'portfolio' },
+    { name: t('nav.interactive'), id: 'interactive-gpt' },
+    { name: t('nav.pricing'), id: 'pricing' },
+    { name: t('nav.team'), id: 'team' },
+    { name: t('nav.testimonials'), id: 'testimonials' },
+    { name: t('nav.faq'), id: 'faq' },
   ];
 
   useEffect(() => {
@@ -84,13 +88,16 @@ function App() {
               </li>
             ))}
             <li>
+              <LanguageSelector />
+            </li>
+            <li>
               <a
                 href="http://pf.kakao.com/_DcvJn/chat"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200"
               >
-                무료 상담
+                {t('nav.consultation')}
               </a>
             </li>
           </ul>
@@ -153,6 +160,9 @@ function App() {
                   </a>
                 </li>
               ))}
+              <li className="w-full mt-2 px-4">
+                <LanguageSelector />
+              </li>
               <li className="w-full mt-2 px-4 pb-2">
                 <a
                   href="http://pf.kakao.com/_DcvJn/chat"
@@ -160,7 +170,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200"
                 >
-                  무료 상담
+                  {t('nav.consultation')}
                 </a>
               </li>
             </ul>
@@ -174,6 +184,9 @@ function App() {
         <AboutSection />
         <TeamSection />
         <ServicesSection />
+        <PortfolioSection />
+        <LiveCodingDemo />
+        <CompetitiveAdvantage />
         <InteractiveAgentSection />
         <PricingSection />
         <TestimonialsSection />
@@ -181,6 +194,14 @@ function App() {
         <Footer />
       </main>
     </div>
+  );
+};
+
+function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }
 
